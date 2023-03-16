@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D97FB31229C1EA60008AF4CE /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97FB31129C1EA60008AF4CE /* VideoCapture.swift */; };
+		D97FB31429C32F0F008AF4CE /* PoseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97FB31329C32F0E008AF4CE /* PoseDetector.swift */; };
+		D97FB31629C331E5008AF4CE /* VisionRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97FB31529C331E5008AF4CE /* VisionRequestBuilder.swift */; };
+		D97FB31829C34C87008AF4CE /* VisionResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97FB31729C34C87008AF4CE /* VisionResponseHandler.swift */; };
 		D9CF2A1629BF2E160079EC23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A1529BF2E160079EC23 /* AppDelegate.swift */; };
 		D9CF2A1829BF2E160079EC23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A1729BF2E160079EC23 /* SceneDelegate.swift */; };
-		D9CF2A1A29BF2E160079EC23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A1929BF2E160079EC23 /* ViewController.swift */; };
+		D9CF2A1A29BF2E160079EC23 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A1929BF2E160079EC23 /* MainViewController.swift */; };
 		D9CF2A1D29BF2E160079EC23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CF2A1B29BF2E160079EC23 /* Main.storyboard */; };
 		D9CF2A1F29BF2E180079EC23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9CF2A1E29BF2E180079EC23 /* Assets.xcassets */; };
 		D9CF2A2229BF2E180079EC23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CF2A2029BF2E180079EC23 /* LaunchScreen.storyboard */; };
+		D9CF2A2A29C0643E0079EC23 /* MediaSourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A2929C0643E0079EC23 /* MediaSourceController.swift */; };
+		D9CF2A2C29C064530079EC23 /* MediaSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A2B29C064530079EC23 /* MediaSourceViewModel.swift */; };
+		D9CF2A2E29C064680079EC23 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CF2A2D29C064680079EC23 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D97FB31129C1EA60008AF4CE /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		D97FB31329C32F0E008AF4CE /* PoseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetector.swift; sourceTree = "<group>"; };
+		D97FB31529C331E5008AF4CE /* VisionRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionRequestBuilder.swift; sourceTree = "<group>"; };
+		D97FB31729C34C87008AF4CE /* VisionResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionResponseHandler.swift; sourceTree = "<group>"; };
 		D9CF2A1229BF2E160079EC23 /* PoseSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoseSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CF2A1529BF2E160079EC23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9CF2A1729BF2E160079EC23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D9CF2A1929BF2E160079EC23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D9CF2A1929BF2E160079EC23 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D9CF2A1C29BF2E160079EC23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9CF2A1E29BF2E180079EC23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9CF2A2129BF2E180079EC23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9CF2A2329BF2E180079EC23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9CF2A2929C0643E0079EC23 /* MediaSourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSourceController.swift; sourceTree = "<group>"; };
+		D9CF2A2B29C064530079EC23 /* MediaSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSourceViewModel.swift; sourceTree = "<group>"; };
+		D9CF2A2D29C064680079EC23 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +72,18 @@
 			children = (
 				D9CF2A1529BF2E160079EC23 /* AppDelegate.swift */,
 				D9CF2A1729BF2E160079EC23 /* SceneDelegate.swift */,
-				D9CF2A1929BF2E160079EC23 /* ViewController.swift */,
+				D9CF2A1929BF2E160079EC23 /* MainViewController.swift */,
+				D9CF2A2D29C064680079EC23 /* MainViewModel.swift */,
 				D9CF2A1B29BF2E160079EC23 /* Main.storyboard */,
 				D9CF2A1E29BF2E180079EC23 /* Assets.xcassets */,
 				D9CF2A2029BF2E180079EC23 /* LaunchScreen.storyboard */,
 				D9CF2A2329BF2E180079EC23 /* Info.plist */,
+				D9CF2A2929C0643E0079EC23 /* MediaSourceController.swift */,
+				D9CF2A2B29C064530079EC23 /* MediaSourceViewModel.swift */,
+				D97FB31129C1EA60008AF4CE /* VideoCapture.swift */,
+				D97FB31329C32F0E008AF4CE /* PoseDetector.swift */,
+				D97FB31529C331E5008AF4CE /* VisionRequestBuilder.swift */,
+				D97FB31729C34C87008AF4CE /* VisionResponseHandler.swift */,
 			);
 			path = PoseSaver;
 			sourceTree = "<group>";
@@ -138,9 +159,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9CF2A1A29BF2E160079EC23 /* ViewController.swift in Sources */,
+				D9CF2A2C29C064530079EC23 /* MediaSourceViewModel.swift in Sources */,
+				D97FB31629C331E5008AF4CE /* VisionRequestBuilder.swift in Sources */,
+				D97FB31229C1EA60008AF4CE /* VideoCapture.swift in Sources */,
+				D9CF2A1A29BF2E160079EC23 /* MainViewController.swift in Sources */,
 				D9CF2A1629BF2E160079EC23 /* AppDelegate.swift in Sources */,
 				D9CF2A1829BF2E160079EC23 /* SceneDelegate.swift in Sources */,
+				D9CF2A2A29C0643E0079EC23 /* MediaSourceController.swift in Sources */,
+				D97FB31829C34C87008AF4CE /* VisionResponseHandler.swift in Sources */,
+				D97FB31429C32F0F008AF4CE /* PoseDetector.swift in Sources */,
+				D9CF2A2E29C064680079EC23 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +315,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y625B3AW8X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PoseSaver/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -314,6 +343,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y625B3AW8X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PoseSaver/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
