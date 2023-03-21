@@ -8,29 +8,39 @@
 import Foundation
 import Vision
 
-struct VisionResponseHandler {
-    static var responseHandler: (VNRequest, Error?) -> Void = { (request, error) in
+class VisionResponseHandler {
+    
+    var handler: ([CGPoint]) -> Void
+    var joints: [VNHumanBodyPoseObservation.JointName : CGPoint] = [:]
+    private let bodyPoseDetectionMinConfidence: VNConfidence = 0.6
+    private let bodyPoseRecognizedPointMinConfidence: VNConfidence = 0.1
+    
+    lazy var responseHandler: (VNRequest, Error?) -> Void = {[self] (request, error) in
         
         guard let results = request.results else {
             print("----")
             return
         }
-        print(results.count)
         guard let observations =
-                   request.results as? [VNHumanBodyPoseObservation] else {
-               return
-           }
-        print(observations.count)
-        observations.forEach{processObservation($0)}
+                request.results as? [VNHumanBodyPoseObservation] else {
+            return
+        }
+        
+        observations.forEach{self.processObservation($0)}
     }
     
-   static func processObservation(_ observation: VNHumanBodyPoseObservation) {
+    
+    init(handler: @escaping ([CGPoint]) -> Void) {
+        self.handler = handler
+    }
+    
+   func processObservation(_ observation: VNHumanBodyPoseObservation) {
         
         // Retrieve all torso points.
         guard let recognizedPoints =
-                try? observation.recognizedPoints(.torso) else { return }
+                try? observation.recognizedPoints(.all) else { return }
         
-        // Torso joint names in a clockwise ordering.
+        // all the joints
         let torsoJointNames: [VNHumanBodyPoseObservation.JointName] = [
             .nose,
             .leftEye,
@@ -50,19 +60,10 @@ struct VisionResponseHandler {
             .leftAnkle,
             .rightAnkle
         ]
-        
-        // Retrieve the CGPoints containing the normalized X and Y coordinates.
-        let imagePoints: [CGPoint] = torsoJointNames.compactMap {
-            guard let point = recognizedPoints[$0], point.confidence > 0 else { return nil }
-            let pointImg = VNImagePointForNormalizedPoint(point.location,
-                                                  Int(screenWidth),
-                                                  Int(screenHeight))
-            print("\($0) ---> \(point)")
-            // Translate the point from normalized-coordinates to image coordinates.
-            return pointImg
-        }
-       
-        // Draw the points onscreen.
-//        draw(points: imagePoints)
+       let displayPoints = recognizedPoints.map {
+           CGPoint(x: $0.value.x, y: 1 - $0.value.y)
+       }
+
+       self.handler(displayPoints)
     }
 }

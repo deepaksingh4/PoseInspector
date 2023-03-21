@@ -11,7 +11,7 @@ import Vision
 struct VisionRequestBuilder {
     var sourceImage: CGImage
     var completionHandler: VNRequestCompletionHandler
-    lazy var reqHandler = VNImageRequestHandler(cgImage: self.sourceImage)
+    lazy var reqHandler = VNImageRequestHandler(cgImage: self.sourceImage, orientation: .up)
     private lazy var request: VNDetectHumanBodyPoseRequest = {
         let req = VNDetectHumanBodyPoseRequest(completionHandler: self.completionHandler)
         return req
@@ -20,6 +20,7 @@ struct VisionRequestBuilder {
     
     init(sourceImage: CGImage, completionHandler: @escaping VNRequestCompletionHandler) {
         self.sourceImage = sourceImage
+        
         self.completionHandler = completionHandler
     }
     

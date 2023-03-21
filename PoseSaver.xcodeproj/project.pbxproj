@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D93D506C29C8A0F200721B57 /* JointsOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D506B29C8A0F200721B57 /* JointsOverlayView.swift */; };
+		D93D506E29C9A4F900721B57 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D506D29C9A4F900721B57 /* CameraView.swift */; };
 		D97FB31229C1EA60008AF4CE /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97FB31129C1EA60008AF4CE /* VideoCapture.swift */; };
 		D97FB31429C32F0F008AF4CE /* PoseDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97FB31329C32F0E008AF4CE /* PoseDetector.swift */; };
 		D97FB31629C331E5008AF4CE /* VisionRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97FB31529C331E5008AF4CE /* VisionRequestBuilder.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D93D506B29C8A0F200721B57 /* JointsOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JointsOverlayView.swift; sourceTree = "<group>"; };
+		D93D506D29C9A4F900721B57 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D97FB31129C1EA60008AF4CE /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
 		D97FB31329C32F0E008AF4CE /* PoseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetector.swift; sourceTree = "<group>"; };
 		D97FB31529C331E5008AF4CE /* VisionRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionRequestBuilder.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				D97FB31329C32F0E008AF4CE /* PoseDetector.swift */,
 				D97FB31529C331E5008AF4CE /* VisionRequestBuilder.swift */,
 				D97FB31729C34C87008AF4CE /* VisionResponseHandler.swift */,
+				D93D506B29C8A0F200721B57 /* JointsOverlayView.swift */,
+				D93D506D29C9A4F900721B57 /* CameraView.swift */,
 			);
 			path = PoseSaver;
 			sourceTree = "<group>";
@@ -162,10 +168,12 @@
 				D9CF2A2C29C064530079EC23 /* MediaSourceViewModel.swift in Sources */,
 				D97FB31629C331E5008AF4CE /* VisionRequestBuilder.swift in Sources */,
 				D97FB31229C1EA60008AF4CE /* VideoCapture.swift in Sources */,
+				D93D506E29C9A4F900721B57 /* CameraView.swift in Sources */,
 				D9CF2A1A29BF2E160079EC23 /* MainViewController.swift in Sources */,
 				D9CF2A1629BF2E160079EC23 /* AppDelegate.swift in Sources */,
 				D9CF2A1829BF2E160079EC23 /* SceneDelegate.swift in Sources */,
 				D9CF2A2A29C0643E0079EC23 /* MediaSourceController.swift in Sources */,
+				D93D506C29C8A0F200721B57 /* JointsOverlayView.swift in Sources */,
 				D97FB31829C34C87008AF4CE /* VisionResponseHandler.swift in Sources */,
 				D97FB31429C32F0F008AF4CE /* PoseDetector.swift in Sources */,
 				D9CF2A2E29C064680079EC23 /* MainViewModel.swift in Sources */,
