@@ -10,7 +10,7 @@ import Vision
 
 class VisionResponseHandler {
     
-    var handler: ([CGPoint]) -> Void
+    var handler: ([VNHumanBodyPoseObservation.JointName : CGPoint]) -> Void
     var joints: [VNHumanBodyPoseObservation.JointName : CGPoint] = [:]
     private let bodyPoseDetectionMinConfidence: VNConfidence = 0.6
     private let bodyPoseRecognizedPointMinConfidence: VNConfidence = 0.1
@@ -30,7 +30,7 @@ class VisionResponseHandler {
     }
     
     
-    init(handler: @escaping ([CGPoint]) -> Void) {
+    init(handler: @escaping ([VNHumanBodyPoseObservation.JointName: CGPoint]) -> Void) {
         self.handler = handler
     }
     
@@ -41,29 +41,16 @@ class VisionResponseHandler {
                 try? observation.recognizedPoints(.all) else { return }
         
         // all the joints
-        let torsoJointNames: [VNHumanBodyPoseObservation.JointName] = [
-            .nose,
-            .leftEye,
-            .rightEye,
-            .leftEar,
-            .rightEar,
-            .leftShoulder,
-            .rightShoulder,
-            .leftElbow,
-            .rightElbow,
-            .leftWrist,
-            .rightWrist,
-            .leftHip,
-            .rightHip,
-            .leftKnee,
-            .rightKnee,
-            .leftAnkle,
-            .rightAnkle
-        ]
+        
        let displayPoints = recognizedPoints.map {
-           CGPoint(x: $0.value.x, y: 1 - $0.value.y)
+           return [$0.key : CGPoint(x: $0.value.x, y: 1 - $0.value.y)]
+       }
+       
+       var response : [VNHumanBodyPoseObservation.JointName: CGPoint] = [:]
+       recognizedPoints.forEach {
+           response[$0.key] = CGPoint(x: $0.value.x, y: 1 - $0.value.y)
        }
 
-       self.handler(displayPoints)
+       self.handler(response)
     }
 }

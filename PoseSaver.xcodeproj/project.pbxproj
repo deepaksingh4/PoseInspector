@@ -55,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D93D506F29CAEE0C00721B57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D93D506D29C9A4F900721B57 /* CameraView.swift */,
+				D93D506B29C8A0F200721B57 /* JointsOverlayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D9CF2A0929BF2E160079EC23 = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +83,7 @@
 		D9CF2A1429BF2E160079EC23 /* PoseSaver */ = {
 			isa = PBXGroup;
 			children = (
+				D93D506F29CAEE0C00721B57 /* Views */,
 				D9CF2A1529BF2E160079EC23 /* AppDelegate.swift */,
 				D9CF2A1729BF2E160079EC23 /* SceneDelegate.swift */,
 				D9CF2A1929BF2E160079EC23 /* MainViewController.swift */,
@@ -88,8 +98,6 @@
 				D97FB31329C32F0E008AF4CE /* PoseDetector.swift */,
 				D97FB31529C331E5008AF4CE /* VisionRequestBuilder.swift */,
 				D97FB31729C34C87008AF4CE /* VisionResponseHandler.swift */,
-				D93D506B29C8A0F200721B57 /* JointsOverlayView.swift */,
-				D93D506D29C9A4F900721B57 /* CameraView.swift */,
 			);
 			path = PoseSaver;
 			sourceTree = "<group>";

@@ -21,7 +21,8 @@ class VideoCapture: NSObject{
     var delegate: VideoCaptureDelegate
     private var captureSession = AVCaptureSession()
     private var outPutData = AVCaptureVideoDataOutput()
-    private var overlayLayer = CAShapeLayer()
+    private static let overlayView = JointsOverLayView()
+    private var overlayLayer = overlayView.previewOverlayLayer
     
     private lazy var previewLayer: AVCaptureVideoPreviewLayer = {
         let preview = AVCaptureVideoPreviewLayer(session: self.captureSession)
@@ -91,23 +92,26 @@ extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
         let image = convert(cmage: ciImage)
         let poseDetector = PoseDetector()
         poseDetector.processImage(cgImage: image) {[weak self] points in
-            var path = CGMutablePath()
-            points.forEach { point in
-                //tranfrom point
-                let circlePath = UIBezierPath(arcCenter: self?.previewLayer.layerPointConverted(fromCaptureDevicePoint: point) ?? .zero, radius: CGFloat(5), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
-                path.addPath(circlePath.cgPath)
-            }
-            self?.overlayLayer.path = path
-            
-            // Change the fill color
-            self?.overlayLayer.fillColor = UIColor.red.cgColor
-            // You can change the stroke color
-            self?.overlayLayer.strokeColor = UIColor.white.cgColor
-            // You can change the line width
-            self?.overlayLayer.lineWidth = 2.0
-            DispatchQueue.main.async {
-                self?.overlayLayer.didChangeValue(forKey: "path")
-            }
+            VideoCapture.overlayView.joints = points.map({ posePoints in
+                return self?.convertToPreviewPoints(points: posePoints) ?? []
+            })
+//            var path = CGMutablePath()
+//            points.forEach { point in
+//                //tranfrom point
+//                let circlePath = UIBezierPath(arcCenter: self?.previewLayer.layerPointConverted(fromCaptureDevicePoint: point) ?? .zero, radius: CGFloat(5), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+//                path.addPath(circlePath.cgPath)
+//            }
+//            self?.overlayLayer.path = path
+//
+//            // Change the fill color
+//            self?.overlayLayer.fillColor = UIColor.red.cgColor
+//            // You can change the stroke color
+//            self?.overlayLayer.strokeColor = UIColor.white.cgColor
+//            // You can change the line width
+//            self?.overlayLayer.lineWidth = 2.0
+//            DispatchQueue.main.async {
+//                self?.overlayLayer.didChangeValue(forKey: "path")
+//            }
             
         }
     }
@@ -116,5 +120,11 @@ extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
         let context = CIContext(options: nil)
         let cgImage = context.createCGImage(cmage, from: cmage.extent)!
         return cgImage
+    }
+    
+    private func convertToPreviewPoints(points: [CGPoint]) -> [CGPoint]{
+        points.map { point in
+            return self.previewLayer.layerPointConverted(fromCaptureDevicePoint: point)
+        }
     }
 }

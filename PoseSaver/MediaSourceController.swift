@@ -62,30 +62,30 @@ extension MediaSourceController: UIImagePickerControllerDelegate, UINavigationCo
         imgView.contentMode = .scaleAspectFill
         self.view.addSubview(imgView)
     
-        let poseDetector = PoseDetector()
-        poseDetector.processImage(cgImage: originalImage.cgImage!){[weak self] points in
-            points.forEach { point in
-                
-                //tranfrom point
-                let circlePath = UIBezierPath(arcCenter: point, radius: CGFloat(3), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
-                guard let self = self else {
-                    return
-                }
-                
-                let shapeLayer = CAShapeLayer()
-                shapeLayer.path = circlePath.cgPath
-                
-                // Change the fill color
-                shapeLayer.fillColor = UIColor.red.cgColor
-                // You can change the stroke color
-                shapeLayer.strokeColor = UIColor.white.cgColor
-                // You can change the line width
-                shapeLayer.lineWidth = 2.0
-                DispatchQueue.main.async {
-                    self.view.layer.addSublayer(shapeLayer)
-                }
-            }
-        }
+//        let poseDetector = PoseDetector()
+//        poseDetector.processImage(cgImage: originalImage.cgImage!){[weak self] points in
+//            points.forEach { point in
+//
+//                //tranfrom point
+//                let circlePath = UIBezierPath(arcCenter: point, radius: CGFloat(3), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+//                guard let self = self else {
+//                    return
+//                }
+//
+//                let shapeLayer = CAShapeLayer()
+//                shapeLayer.path = circlePath.cgPath
+//
+//                // Change the fill color
+//                shapeLayer.fillColor = UIColor.red.cgColor
+//                // You can change the stroke color
+//                shapeLayer.strokeColor = UIColor.white.cgColor
+//                // You can change the line width
+//                shapeLayer.lineWidth = 2.0
+//                DispatchQueue.main.async {
+//                    self.view.layer.addSublayer(shapeLayer)
+//                }
+//            }
+//        }
         self.dismiss(animated: true)
     }
         
@@ -98,31 +98,31 @@ extension MediaSourceController: UIImagePickerControllerDelegate, UINavigationCo
 extension MediaSourceController: VideoCaptureDelegate{
     
     func capturedFrame(cgImage: CGImage) {
-        let poseDetector = PoseDetector()
-        poseDetector.processImage(cgImage: cgImage) {[weak self] points in
-            points.forEach { point in
-                
-                //tranfrom point
-                let circlePath = UIBezierPath(arcCenter: point, radius: CGFloat(3), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
-                guard let self = self else {
-                    return
-                }
-                
-                let shapeLayer = CAShapeLayer()
-                shapeLayer.path = circlePath.cgPath
-                
-                // Change the fill color
-                shapeLayer.fillColor = UIColor.red.cgColor
-                // You can change the stroke color
-                shapeLayer.strokeColor = UIColor.white.cgColor
-                // You can change the line width
-                shapeLayer.lineWidth = 2.0
-                DispatchQueue.main.async {
-                    self.view.layer.addSublayer(shapeLayer)
-                }
-            }
-            
-        }
+//        let poseDetector = PoseDetector()
+//        poseDetector.processImage(cgImage: cgImage) {[weak self] points in
+//            points.forEach { point in
+//
+//                //tranfrom point
+//                let circlePath = UIBezierPath(arcCenter: point, radius: CGFloat(3), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+//                guard let self = self else {
+//                    return
+//                }
+//
+//                let shapeLayer = CAShapeLayer()
+//                shapeLayer.path = circlePath.cgPath
+//
+//                // Change the fill color
+//                shapeLayer.fillColor = UIColor.red.cgColor
+//                // You can change the stroke color
+//                shapeLayer.strokeColor = UIColor.white.cgColor
+//                // You can change the line width
+//                shapeLayer.lineWidth = 2.0
+//                DispatchQueue.main.async {
+//                    self.view.layer.addSublayer(shapeLayer)
+//                }
+//            }
+//
+//        }
     }
     
     func foundJoints(points: [CGPoint]) {
