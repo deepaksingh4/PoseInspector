@@ -28,6 +28,7 @@ class JointsOverLayView: UIView {
         self.previewOverlayLayer.frame = self.frame
         self.previewOverlayLayer.strokeColor = UIColor.green.cgColor
         self.previewOverlayLayer.lineWidth = 3.0
+        self.previewOverlayLayer.fillColor = UIColor.clear.cgColor
     }
     
     required init?(coder: NSCoder) {
@@ -35,8 +36,8 @@ class JointsOverLayView: UIView {
     }
     
     func drawJoints(){
-        var path = CGMutablePath()
-        self.previewOverlayLayer.path = path
+        let path = CGMutablePath()
+        
         joints.forEach { joint in
             if joint.count > 0 {
                 path.move(to: joint[0])
@@ -45,7 +46,6 @@ class JointsOverLayView: UIView {
                 path.addLine(to: point)
             }
         }
-        
         self.previewOverlayLayer.path = path
         DispatchQueue.main.async {
             self.previewOverlayLayer.didChangeValue(forKey: "path")

@@ -40,7 +40,7 @@ class VideoCapture: NSObject{
     
     
     func addCameraInput(){
-        guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else{
+        guard let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else{
             return
         }
         

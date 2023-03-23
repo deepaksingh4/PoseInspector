@@ -39,13 +39,7 @@ class VisionResponseHandler {
         // Retrieve all torso points.
         guard let recognizedPoints =
                 try? observation.recognizedPoints(.all) else { return }
-        
-        // all the joints
-        
-       let displayPoints = recognizedPoints.map {
-           return [$0.key : CGPoint(x: $0.value.x, y: 1 - $0.value.y)]
-       }
-       
+    
        var response : [VNHumanBodyPoseObservation.JointName: CGPoint] = [:]
        recognizedPoints.forEach {
            response[$0.key] = CGPoint(x: $0.value.x, y: 1 - $0.value.y)
