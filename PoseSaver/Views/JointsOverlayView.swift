@@ -9,7 +9,7 @@ import UIKit
 
 class JointsOverLayView: UIView {
     
-    var joints: [[CGPoint]] = []{
+    var joints: [JointLine] = []{
         didSet{
             drawJoints()
         }
@@ -29,6 +29,7 @@ class JointsOverLayView: UIView {
         self.previewOverlayLayer.strokeColor = UIColor.green.cgColor
         self.previewOverlayLayer.lineWidth = 3.0
         self.previewOverlayLayer.fillColor = UIColor.clear.cgColor
+        self.previewOverlayLayer.fillRule = .evenOdd
     }
     
     required init?(coder: NSCoder) {
@@ -38,18 +39,38 @@ class JointsOverLayView: UIView {
     func drawJoints(){
         let path = CGMutablePath()
         
-        joints.forEach { joint in
+        joints.forEach { jointLine in
+            print(jointLine.name)
+            let error = CAShapeLayer()
+            error.frame = self.previewOverlayLayer.frame
+            error.name = jointLine.name
+            error.lineWidth = 3
+            error.fillColor = UIColor.clear.cgColor
+            error.strokeColor = UIColor.red.cgColor
+            let joint = jointLine.jointPoints
+            
+            let _ = self.previewOverlayLayer.sublayers?.filter({ layer in
+                return layer.name == jointLine.name
+            }).forEach({ layer in
+                layer.removeFromSuperlayer()
+            })
+            
+            if jointLine.error != nil{
+                self.previewOverlayLayer.addSublayer(error)
+            }
             if joint.count > 0 {
-                path.move(to: joint[0])
+                path.move(to: joint[0]!)
             }
             joint.forEach { point in
-                path.addLine(to: point)
+                path.addLine(to: point!)
+            }
+            error.path = path
+            self.previewOverlayLayer.path = path
+            DispatchQueue.main.async {
+                self.previewOverlayLayer.didChangeValue(forKey: "path")
             }
         }
-        self.previewOverlayLayer.path = path
-        DispatchQueue.main.async {
-            self.previewOverlayLayer.didChangeValue(forKey: "path")
-        }
+        
         
     }
     

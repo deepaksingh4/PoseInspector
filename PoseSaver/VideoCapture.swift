@@ -90,29 +90,16 @@ extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
         }
         let ciImage = CIImage(cvPixelBuffer: imageBuffer)
         let image = convert(cmage: ciImage)
-        let poseDetector = PoseDetector()
-        poseDetector.processImage(cgImage: image) {[weak self] points in
-            VideoCapture.overlayView.joints = points.map({ posePoints in
-                return self?.convertToPreviewPoints(points: posePoints) ?? []
+        let poseDetector = OfficePoseDetector()
+        poseDetector.processImage(cgImage: image) {[weak self] jointLines in
+            VideoCapture.overlayView.joints = jointLines.map({ jointLine in
+                var joint = jointLine
+                guard let self = self else{
+                    return JointLine(name: "Invalid", jointPoints: [])
+                }
+                joint.updatePointForPreviewLayer(previewLayer: self.previewLayer)
+                return joint
             })
-//            var path = CGMutablePath()
-//            points.forEach { point in
-//                //tranfrom point
-//                let circlePath = UIBezierPath(arcCenter: self?.previewLayer.layerPointConverted(fromCaptureDevicePoint: point) ?? .zero, radius: CGFloat(5), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
-//                path.addPath(circlePath.cgPath)
-//            }
-//            self?.overlayLayer.path = path
-//
-//            // Change the fill color
-//            self?.overlayLayer.fillColor = UIColor.red.cgColor
-//            // You can change the stroke color
-//            self?.overlayLayer.strokeColor = UIColor.white.cgColor
-//            // You can change the line width
-//            self?.overlayLayer.lineWidth = 2.0
-//            DispatchQueue.main.async {
-//                self?.overlayLayer.didChangeValue(forKey: "path")
-//            }
-            
         }
     }
     
