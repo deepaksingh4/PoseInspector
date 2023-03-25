@@ -9,27 +9,28 @@ import Foundation
 import Vision
 
 struct VisionRequestBuilder {
-    var sourceImage: CGImage
+    var imageBuffer: CMSampleBuffer
     var completionHandler: VNRequestCompletionHandler
-    lazy var reqHandler = VNImageRequestHandler(cgImage: self.sourceImage, orientation: .up)
+    var requestHandler = VNSequenceRequestHandler()
+   
     private lazy var request: VNDetectHumanBodyPoseRequest = {
         let req = VNDetectHumanBodyPoseRequest(completionHandler: self.completionHandler)
         return req
     }()
 
     
-    init(sourceImage: CGImage, completionHandler: @escaping VNRequestCompletionHandler) {
-        self.sourceImage = sourceImage
-        
+    init( sampleBuffer: CMSampleBuffer, completionHandler: @escaping VNRequestCompletionHandler) {
+        self.imageBuffer = sampleBuffer
         self.completionHandler = completionHandler
     }
     
     mutating func performDetection(){
         do{
-            try self.reqHandler.perform([self.request])
+            try self.requestHandler.perform([request], on: self.imageBuffer)
         }catch{
             print("got exception")
         }
     }
+    
     
 }

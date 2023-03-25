@@ -37,26 +37,16 @@ class JointsOverLayView: UIView {
     }
     
     func drawJoints(){
-        let path = CGMutablePath()
         
+        let path = CGMutablePath()
         joints.forEach { jointLine in
             print(jointLine.name)
-            let error = CAShapeLayer()
-            error.frame = self.previewOverlayLayer.frame
-            error.name = jointLine.name
-            error.lineWidth = 3
-            error.fillColor = UIColor.clear.cgColor
-            error.strokeColor = UIColor.red.cgColor
+           
             let joint = jointLine.jointPoints
             
-            let _ = self.previewOverlayLayer.sublayers?.filter({ layer in
-                return layer.name == jointLine.name
-            }).forEach({ layer in
-                layer.removeFromSuperlayer()
-            })
-            
             if jointLine.error != nil{
-                self.previewOverlayLayer.addSublayer(error)
+                let message = getErrorMessage(error: jointLine.error)
+                self.showErrorMessage(message: message)
             }
             if joint.count > 0 {
                 path.move(to: joint[0]!)
@@ -64,14 +54,34 @@ class JointsOverLayView: UIView {
             joint.forEach { point in
                 path.addLine(to: point!)
             }
-            error.path = path
+
             self.previewOverlayLayer.path = path
             DispatchQueue.main.async {
                 self.previewOverlayLayer.didChangeValue(forKey: "path")
             }
         }
-        
-        
     }
     
+    
+    
+    func showErrorMessage(message: String){
+        Alerts.shared.showErrorView(message: message)
+    }
+    
+    func hideErrorMessage(){
+        Alerts.shared.hideAlert()
+    }
+    func getErrorMessage(error: SittingPostureError?) -> String{
+        guard let error = error else{
+            return "Bad error"
+        }
+        switch error{
+        case .WRONG_ELBOW_ANGLE:
+            return "Please correct your elbow joint, try keeping them as close to 90 degree (⎿)"
+        case .WRONG_KNEE_ANGLE:
+            return "Please correct you knee joint, try keeping them as close to 90 degree(⏋) to the ground"
+        }
+        
+    }
 }
+

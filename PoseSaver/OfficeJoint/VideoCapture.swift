@@ -91,7 +91,7 @@ extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
         let ciImage = CIImage(cvPixelBuffer: imageBuffer)
         let image = convert(cmage: ciImage)
         let poseDetector = OfficePoseDetector()
-        poseDetector.processImage(cgImage: image) {[weak self] jointLines in
+        poseDetector.processImage(cgImage: image, sampleBuffer: sampleBuffer) {[weak self] jointLines in
             VideoCapture.overlayView.joints = jointLines.map({ jointLine in
                 var joint = jointLine
                 guard let self = self else{
