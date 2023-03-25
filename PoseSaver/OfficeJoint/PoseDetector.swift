@@ -65,8 +65,12 @@ class OfficePoseDetector {
             let jointValidator = JointValidator()
             handler(
                 [jointValidator.createJointLine(name: .leftHand, points: leftHand),
-                jointValidator.createJointLine(name: .leftLeg, points: leftLeg),
-                jointValidator.createJointLine(name: .neckLine, points: neckLine)]
+                 jointValidator.createJointLine(name: .leftLeg, points: leftLeg),
+                 jointValidator.createJointLine(name: .neckLine, points: neckLine),
+                 jointValidator.createJointLine(name: .rightLeg, points: rightLeg),
+                 jointValidator.createJointLine(name: .rightHand, points: rightHand),
+                 jointValidator.createJointLine(name: .waistLine, points: waistLine),
+                 jointValidator.createJointLine(name: .spine, points: spine)]
             )
         }
         var visionRequestBuilder = VisionRequestBuilder(sourceImage: cgImage, completionHandler: responseHandler.responseHandler)
@@ -76,53 +80,3 @@ class OfficePoseDetector {
 }
 
 
-struct JointValidator {
-    
-    func createJointLine(name: JointGroup, points: [VNHumanBodyPoseObservation.JointName : CGPoint?]) -> JointLine {
-        switch name{
-        case .leftHand:
-            guard let leftShoulder = points[.leftShoulder] else{
-                let values = points.values.compactMap { point in
-                    point
-                }
-        
-                return JointLine(name: name.rawValue, jointPoints: values, error: nil)
-            }
-            guard let leftElbow = points[.leftElbow] else{
-                let values = points.values.compactMap { point in
-                    point
-                }
-        
-                return JointLine(name: name.rawValue, jointPoints: values, error: nil)
-            }
-            guard let leftWrist = points[.leftWrist] else{
-                let values = points.values.compactMap { point in
-                    point
-                }
-        
-                return JointLine(name: name.rawValue, jointPoints: values, error: nil)
-            }
-            
-            return JointLine(name: name.rawValue, jointPoints: [leftShoulder, leftElbow, leftWrist], error: .WRONG_ELBOW_ANGLE)
-            
-            
-        default:
-            let values = points.values.compactMap { point in
-                point
-            }
-    
-            return JointLine(name: name.rawValue, jointPoints: values, error: nil)
-            
-        }
-    }
-
-}
-
-
-
-
-extension Array <CGPoint?> {
-    func returnNotNil() -> [CGPoint]{
-        return self.compactMap({ $0 })
-    }
-}

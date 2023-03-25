@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		006F2C8029CE434800C4FB57 /* JointValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F2C7F29CE434800C4FB57 /* JointValidator.swift */; };
 		D93D506C29C8A0F200721B57 /* JointsOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D506B29C8A0F200721B57 /* JointsOverlayView.swift */; };
 		D93D506E29C9A4F900721B57 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D506D29C9A4F900721B57 /* CameraView.swift */; };
 		D97FB31229C1EA60008AF4CE /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97FB31129C1EA60008AF4CE /* VideoCapture.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		006F2C7F29CE434800C4FB57 /* JointValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JointValidator.swift; sourceTree = "<group>"; };
 		D93D506B29C8A0F200721B57 /* JointsOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JointsOverlayView.swift; sourceTree = "<group>"; };
 		D93D506D29C9A4F900721B57 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D97FB31129C1EA60008AF4CE /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
@@ -55,6 +57,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		006F2C8129CE437B00C4FB57 /* OfficeJoint */ = {
+			isa = PBXGroup;
+			children = (
+				D97FB31129C1EA60008AF4CE /* VideoCapture.swift */,
+				D97FB31329C32F0E008AF4CE /* PoseDetector.swift */,
+				D97FB31529C331E5008AF4CE /* VisionRequestBuilder.swift */,
+				D97FB31729C34C87008AF4CE /* VisionResponseHandler.swift */,
+				006F2C7F29CE434800C4FB57 /* JointValidator.swift */,
+			);
+			path = OfficeJoint;
+			sourceTree = "<group>";
+		};
 		D93D506F29CAEE0C00721B57 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,10 +108,7 @@
 				D9CF2A2329BF2E180079EC23 /* Info.plist */,
 				D9CF2A2929C0643E0079EC23 /* MediaSourceController.swift */,
 				D9CF2A2B29C064530079EC23 /* MediaSourceViewModel.swift */,
-				D97FB31129C1EA60008AF4CE /* VideoCapture.swift */,
-				D97FB31329C32F0E008AF4CE /* PoseDetector.swift */,
-				D97FB31529C331E5008AF4CE /* VisionRequestBuilder.swift */,
-				D97FB31729C34C87008AF4CE /* VisionResponseHandler.swift */,
+				006F2C8129CE437B00C4FB57 /* OfficeJoint */,
 			);
 			path = PoseSaver;
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 				D9CF2A2A29C0643E0079EC23 /* MediaSourceController.swift in Sources */,
 				D93D506C29C8A0F200721B57 /* JointsOverlayView.swift in Sources */,
 				D97FB31829C34C87008AF4CE /* VisionResponseHandler.swift in Sources */,
+				006F2C8029CE434800C4FB57 /* JointValidator.swift in Sources */,
 				D97FB31429C32F0F008AF4CE /* PoseDetector.swift in Sources */,
 				D9CF2A2E29C064680079EC23 /* MainViewModel.swift in Sources */,
 			);
@@ -331,9 +343,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y625B3AW8X;
+				DEVELOPMENT_TEAM = 4EK8A9V52S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PoseSaver/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access for user view";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -345,7 +358,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dex.PoseSaver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dex.PoseSaver1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -358,11 +371,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y625B3AW8X;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PoseSaver/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access for user view";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -376,6 +390,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dex.PoseSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
