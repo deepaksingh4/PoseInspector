@@ -14,6 +14,7 @@ import Vision
 struct JointValidator {
     
     func createJointLine(name: JointGroup, points: [VNHumanBodyPoseObservation.JointName : CGPoint?]) -> JointLine? {
+        
         switch name{
             
         case .leftHand:
@@ -107,7 +108,6 @@ struct JointValidator {
             }
             
             return JointLine(name: name.rawValue, jointPoints: values, error: nil)
-            
         }
     }
     
@@ -119,8 +119,6 @@ struct JointValidator {
     }
     
 }
-
-
 
 
 extension Array <CGPoint?> {

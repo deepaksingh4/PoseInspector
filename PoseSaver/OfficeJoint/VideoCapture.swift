@@ -30,7 +30,6 @@ class VideoCapture: NSObject{
         return preview
     }()
     
-    
     init(delegate: VideoCaptureDelegate){
         self.delegate = delegate
         super.init()
@@ -89,9 +88,8 @@ extension VideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
         let ciImage = CIImage(cvPixelBuffer: imageBuffer)
-        let image = convert(cmage: ciImage)
         let poseDetector = OfficePoseDetector()
-        poseDetector.processImage(cgImage: image, sampleBuffer: sampleBuffer) {[weak self] jointLines in
+        poseDetector.processBuffer(sampleBuffer: sampleBuffer) {[weak self] jointLines in
             VideoCapture.overlayView.joints = jointLines.map({ jointLine in
                 var joint = jointLine
                 guard let self = self else{

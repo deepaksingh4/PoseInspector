@@ -8,8 +8,6 @@
 import UIKit
 
 
-var screenWidth: CGFloat = UIScreen.main.fixedCoordinateSpace.bounds.width
-var screenHeight: CGFloat = UIScreen.main.fixedCoordinateSpace.bounds.height
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
