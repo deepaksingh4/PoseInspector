@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,13 +23,6 @@
                                     <segue destination="Vcd-eQ-3WC" kind="embed" id="esc-4d-K5j"/>
                                 </connections>
                             </containerView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sit" translatesAutoresizingMaskIntoConstraints="NO" id="JTt-vX-4cc">
-                                <rect key="frame" x="252" y="59" width="141" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="kZN-0T-6ud"/>
-                                    <constraint firstAttribute="width" constant="141" id="om7-Q0-gbV"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -36,9 +30,7 @@
                             <constraint firstAttribute="bottom" secondItem="jtg-hJ-yyh" secondAttribute="bottom" id="8Er-aJ-2u6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jtg-hJ-yyh" secondAttribute="trailing" id="DTw-FP-Zaa"/>
                             <constraint firstItem="jtg-hJ-yyh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NIu-Rf-Kom"/>
-                            <constraint firstItem="JTt-vX-4cc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PBS-zF-pYb"/>
                             <constraint firstItem="jtg-hJ-yyh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Pge-Lz-g0s"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JTt-vX-4cc" secondAttribute="trailing" id="j8v-RP-74c"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -63,7 +55,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="sit" width="202" height="203"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
