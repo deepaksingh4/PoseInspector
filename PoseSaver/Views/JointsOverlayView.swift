@@ -76,6 +76,7 @@ class JointsOverLayView: UIView {
             return "Bad error"
         }
         switch error{
+            
         case .WRONG_ELBOW_ANGLE:
             return "Please correct your elbow joint, try keeping them as close to 90 degree (⎿)"
         case .WRONG_KNEE_ANGLE:
