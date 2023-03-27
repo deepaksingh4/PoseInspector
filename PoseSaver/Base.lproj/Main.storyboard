@@ -23,13 +23,6 @@
                                     <segue destination="Vcd-eQ-3WC" kind="embed" id="esc-4d-K5j"/>
                                 </connections>
                             </containerView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sit" translatesAutoresizingMaskIntoConstraints="NO" id="JTt-vX-4cc">
-                                <rect key="frame" x="252" y="59" width="141" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="kZN-0T-6ud"/>
-                                    <constraint firstAttribute="width" constant="141" id="om7-Q0-gbV"/>
-                                </constraints>
-                            </imageView>
                             <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Mos-05-v3q">
                                 <rect key="frame" x="134" y="775" width="125" height="32"/>
                                 <segments>
@@ -48,10 +41,8 @@
                             <constraint firstItem="Mos-05-v3q" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-12" id="Ctx-bB-03U"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jtg-hJ-yyh" secondAttribute="trailing" id="DTw-FP-Zaa"/>
                             <constraint firstItem="jtg-hJ-yyh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NIu-Rf-Kom"/>
-                            <constraint firstItem="JTt-vX-4cc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PBS-zF-pYb"/>
                             <constraint firstItem="jtg-hJ-yyh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Pge-Lz-g0s"/>
                             <constraint firstItem="Mos-05-v3q" firstAttribute="centerX" secondItem="jtg-hJ-yyh" secondAttribute="centerX" id="cyZ-hf-bTf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JTt-vX-4cc" secondAttribute="trailing" id="j8v-RP-74c"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -76,7 +67,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="sit" width="202" height="203"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
